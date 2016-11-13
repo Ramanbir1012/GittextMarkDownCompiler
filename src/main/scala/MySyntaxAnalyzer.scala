@@ -8,7 +8,9 @@ class MySyntaxAnalyzer extends SyntaxAnalyzer
 {
   override def gittex(): Unit =
   {
-    if (Compiler.currentToken.equalsIgnoreCase(CONSTANTS.DOCB)){
+    if (Compiler.currentToken.equalsIgnoreCase(CONSTANTS.DOCB))
+    {
+
       // add to parse tree / stack
       Compiler.Scanner.getNextToken()
     }

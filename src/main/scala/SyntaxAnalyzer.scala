@@ -4,7 +4,7 @@
 package edu.towson.cosc.cosc455.rsehde1.project1
 
 
-
+//Methods used for the  my syntax analyzer in order to check for correct grammar
 trait SyntaxAnalyzer
 {
   def gittex() : Unit

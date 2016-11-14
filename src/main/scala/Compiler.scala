@@ -6,20 +6,21 @@ import edu.towson.cosc.cosc455.rsehde1.project1.{MyLexicalAnalyzer, MySemanticAn
 
 object Compiler
 {
-
-
   //Variable Declarations
   var currentToken : String = ""
   var fileContents : String = ""
 
+  //Declarations for the class to be used in the compiler
   val Scanner = new MyLexicalAnalyzer
   val Parser = new MySyntaxAnalyzer
   val semantic = new MySemanticAnalyzer
   val SemanticAnalyzer = new MySyntaxAnalyzer
 
+  //Main Method To check if file is being read and its arguments
   def main(args: Array[String]): Unit =
   {
 
+    //Check HTML file arguments
     checkFile(args)
     readFile(args(0))
 
@@ -28,14 +29,10 @@ object Compiler
     Scanner.getNextToken()
     parser.gittex
     openHTMLFileInBrowser(String)
-
-
     Scanner.begin(fileContents)
-
-    while(Scanner.filePos < Scanner.filesize)
-
   }
 
+  //This method is use to read the HTML file
   def readFile(file : String) =
   {
     val source = scala.io.Source.fromFile(file)
@@ -55,26 +52,6 @@ object Compiler
     {
       println("USAGE ERROR: wrong extension fool!")
       System.exit(1)
-    }
-
-  }
-
-  //Method is used to put the file in HTML format
-  def openHTMLFileInBrowser(htmlFileStr : String) =
-  {
-    val file : File = new File(htmlFileStr.trim)
-    println(file.getAbsolutePath)
-    if (!file.exists())
-      sys.error("File " + htmlFileStr + " does not exist.")
-
-    try
-    {
-      Desktop.getDesktop.browse(file.toURI)
-    }
-    catch
-      {
-      case ioe: IOException => sys.error("Failed to open file:  " + htmlFileStr)
-      case e: Exception => sys.error("He's dead, Jim!")
     }
   }
 }

@@ -3,6 +3,7 @@
   */
 package edu.towson.cosc.cosc455.rsehde1.project1
 
+//Traits used for the myLexical Analyzer in order to parse through the tree and analyze the tokens
 trait LexicalAnalyzer
 {
   var nextChar: String = ""
@@ -11,7 +12,7 @@ trait LexicalAnalyzer
   def getChar() : Char
   def getNextToken() : Unit
   def lookup() : Boolean
-  var currentPos: Int =0;
+  var currentPosition: Int =0;
   {
     println("this is lookup implementation!")
   }
